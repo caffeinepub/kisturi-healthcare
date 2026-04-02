@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Font Faces ─── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* MediConnect — Fresh Clinical Blue + Green */
+    /* Background: crisp white */
+    --background: 0.99 0 0;
+    /* Foreground: deep navy-slate */
+    --foreground: 0.15 0.025 255;
+
+    /* Card: soft white with hint of blue */
+    --card: 0.99 0.005 230;
+    --card-foreground: 0.15 0.025 255;
+
+    /* Popover */
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.15 0.025 255;
+
+    /* Primary: vivid medical blue */
+    --primary: 0.48 0.18 255;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: soft sky tint */
+    --secondary: 0.94 0.035 230;
+    --secondary-foreground: 0.25 0.06 255;
+
+    /* Muted: light gray-blue */
+    --muted: 0.96 0.012 240;
+    --muted-foreground: 0.50 0.025 250;
+
+    /* Accent: vibrant medical green */
+    --accent: 0.55 0.17 145;
+    --accent-foreground: 0.99 0 0;
+
+    /* Success */
+    --success: 0.55 0.17 145;
+    --success-foreground: 0.99 0 0;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Warning */
+    --warning: 0.72 0.18 65;
+    --warning-foreground: 0.15 0.03 50;
+
+    /* Border & Input */
+    --border: 0.90 0.025 240;
+    --input: 0.90 0.025 240;
+    --ring: 0.48 0.18 255;
+
+    /* Charts */
+    --chart-1: 0.48 0.18 255;
+    --chart-2: 0.55 0.17 145;
+    --chart-3: 0.65 0.15 195;
+    --chart-4: 0.72 0.18 65;
+    --chart-5: 0.577 0.245 27.325;
+
+    /* Sidebar */
+    --sidebar: 0.96 0.025 240;
+    --sidebar-foreground: 0.15 0.025 255;
+    --sidebar-primary: 0.48 0.18 255;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.92 0.04 230;
+    --sidebar-accent-foreground: 0.25 0.06 255;
+    --sidebar-border: 0.88 0.03 240;
+    --sidebar-ring: 0.48 0.18 255;
+
+    /* Custom tokens */
+    --medical-blue: 0.48 0.18 255;
+    --medical-blue-light: 0.72 0.12 245;
+    --medical-green: 0.55 0.17 145;
+    --medical-green-light: 0.88 0.10 145;
+    --surface: 0.97 0.015 240;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .medical-gradient {
+    background: linear-gradient(135deg, oklch(0.48 0.18 255) 0%, oklch(0.38 0.16 265) 100%);
+  }
+
+  .green-gradient {
+    background: linear-gradient(135deg, oklch(0.55 0.17 145) 0%, oklch(0.45 0.15 155) 100%);
+  }
+
+  .surface-gradient {
+    background: linear-gradient(160deg, oklch(0.99 0.005 230) 0%, oklch(0.96 0.02 240) 100%);
+  }
+
+  .card-glass {
+    background: oklch(0.99 0.005 230 / 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.90 0.025 240 / 0.8);
+  }
+
+  .text-medical-blue {
+    color: oklch(var(--medical-blue));
+  }
+
+  .text-medical-green {
+    color: oklch(var(--medical-green));
+  }
+
+  .bg-medical-blue {
+    background-color: oklch(var(--medical-blue));
+  }
+
+  .bg-medical-green {
+    background-color: oklch(var(--medical-green));
+  }
+
+  .bg-medical-blue-light {
+    background-color: oklch(var(--medical-blue-light) / 0.15);
+  }
+
+  .bg-medical-green-light {
+    background-color: oklch(var(--medical-green-light) / 0.4);
+  }
+
+  .border-medical-blue {
+    border-color: oklch(var(--medical-blue));
+  }
+
+  .shadow-medical {
+    box-shadow: 0 4px 24px oklch(0.48 0.18 255 / 0.15);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 12px oklch(0.15 0.025 255 / 0.08), 0 1px 3px oklch(0.15 0.025 255 / 0.05);
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .admin-gradient {
+    background: linear-gradient(135deg, oklch(0.35 0.15 255) 0%, oklch(0.28 0.12 280) 100%);
+  }
+
+  .shadow-admin {
+    box-shadow: 0 4px 24px oklch(0.35 0.15 255 / 0.20);
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
